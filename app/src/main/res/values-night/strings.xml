@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Quizcuy</string>
+    <string name="judulquiz">JudulQuiz</string>
+    <string name="kelas">Kelas</string>
+    <string name="jumlah_soal">Jumlah soal</string>
+    <string name="na">NA</string>
+    <string name="mulai">Mulai!</string>
+    <string name="quizcuy">Quizcuy</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+</resources>
