@@ -10,7 +10,7 @@
         android:id="@+id/imageView"
         android:layout_width="256dp"
         android:layout_height="253dp"
-        android:src="@drawable/placeholder"
+        android:src="@drawable/app_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
