@@ -1,17 +1,11 @@
 package com.brafly.quizcuy.repository;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.app.Application;
-import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.MutableLiveData;
 
-import com.brafly.quizcuy.LoginActivity;
-import com.brafly.quizcuy.MainActivity;
-import com.brafly.quizcuy.RegisterActivity;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
