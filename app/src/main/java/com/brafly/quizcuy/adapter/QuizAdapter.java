@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.brafly.quizcuy.R;
@@ -17,11 +18,15 @@ import java.util.List;
 
 public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizListViewHolder> {
     private List<QuizListModel> QuizListModels;
+    private OnItemClickListener onItemClickListener;
 
     public void setQuizListModels(List<QuizListModel> quizListModels) {
         QuizListModels = quizListModels;
     }
 
+    public QuizAdapter(OnItemClickListener onItemClickListener) {
+        this.onItemClickListener = onItemClickListener;
+    }
     @NonNull
     @Override
     public QuizListViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -38,18 +43,35 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.QuizListViewHo
 
     @Override
     public int getItemCount() {
-        return QuizListModels.size();
+        if (QuizListModels == null) {
+            return 0;
+        } else {
+            return QuizListModels.size();
+        }
     }
 
-    public class QuizListViewHolder extends RecyclerView.ViewHolder {
+    public class QuizListViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private TextView title;
         private ImageView quizImage;
+        private ConstraintLayout constraintLayout;
 
         public QuizListViewHolder(@NonNull View itemView) {
             super(itemView);
 
             title = itemView.findViewById(R.id.quiz_title);
             quizImage = itemView.findViewById(R.id.quiz_img);
+            constraintLayout = itemView.findViewById(R.id.constraintLayout);
+
+            constraintLayout.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            onItemClickListener.onItemClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(int position);
     }
 }
