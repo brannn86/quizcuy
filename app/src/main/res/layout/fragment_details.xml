@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imgDetail" />
 
     <TextView
-        android:id="@+id/classDetail"
+        android:id="@+id/diff_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
@@ -40,24 +40,24 @@
         app:layout_constraintTop_toBottomOf="@+id/titleDetail" />
 
     <TextView
-        android:id="@+id/questionsDetail"
+        android:id="@+id/questions_num_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="24dp"
         android:text="@string/jumlah_soal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/classDetail" />
+        app:layout_constraintTop_toBottomOf="@+id/diff_text" />
 
     <TextView
-        android:id="@+id/kelas_hum"
+        android:id="@+id/diff_num"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="50dp"
         android:text="@string/na"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/classDetail" />
+        app:layout_constraintTop_toTopOf="@+id/diff_text" />
 
     <TextView
         android:id="@+id/questions_num"
@@ -67,7 +67,7 @@
         android:text="@string/na"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/questionsDetail" />
+        app:layout_constraintTop_toTopOf="@+id/questions_num_text" />
 
     <Button
         android:id="@+id/start_btn"
@@ -78,5 +78,17 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/detailBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="@+id/imgDetail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgDetail"
+        android:indeterminateTint="@color/orange"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
