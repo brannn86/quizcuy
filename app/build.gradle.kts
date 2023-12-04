@@ -47,6 +47,9 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
+    // bottom navigation
+    implementation("com.ashokvarma.android:bottom-navigation-bar:2.2.0")
+
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
