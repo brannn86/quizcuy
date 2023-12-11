@@ -8,9 +8,10 @@ import androidx.lifecycle.ViewModel;
 import com.brafly.quizcuy.model.QuestionModel;
 import com.brafly.quizcuy.repository.Question;
 
+import java.util.HashMap;
 import java.util.List;
 
-public class QuestionViewModel extends ViewModel implements Question.OnQuestionLoad {
+public class QuestionViewModel extends ViewModel implements Question.OnQuestionLoad, Question.OnResultAdded {
     private MutableLiveData<List<QuestionModel>> questionMutableLiveData;
     private Question question;
 
@@ -20,7 +21,11 @@ public class QuestionViewModel extends ViewModel implements Question.OnQuestionL
 
     public QuestionViewModel() {
         questionMutableLiveData = new MutableLiveData<>();
-        question = new Question(this);
+        question = new Question(this, this);
+    }
+
+    public void addResults(HashMap<String , Object> resultMap){
+        question.addResults(resultMap);
     }
 
     public void setQuizId(String quizId) {
@@ -31,6 +36,11 @@ public class QuestionViewModel extends ViewModel implements Question.OnQuestionL
     @Override
     public void onLoad(List<QuestionModel> questionModels) {
         questionMutableLiveData.setValue(questionModels);
+    }
+
+    @Override
+    public boolean onSubmit() {
+        return true;
     }
 
     @Override

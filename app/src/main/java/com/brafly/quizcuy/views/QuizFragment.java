@@ -25,6 +25,7 @@ import com.brafly.quizcuy.model.QuestionModel;
 import com.brafly.quizcuy.viewmodel.QuestionViewModel;
 import com.brafly.quizcuy.viewmodel.QuizListViewModel;
 
+import java.util.HashMap;
 import java.util.List;
 
 public class QuizFragment extends Fragment implements View.OnClickListener {
@@ -139,6 +140,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     private void startTimer() {
         timerTv.setText(String.valueOf(timer));
+        progressBar.setVisibility(View.VISIBLE);
         countDownTimer = new CountDownTimer(timer * 1000, 1000) {
             @Override
             public void onTick(long l) {
@@ -194,13 +196,19 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         ansFeedbackTv.setVisibility(View.INVISIBLE);
         next_btn.setVisibility(View.INVISIBLE);
         next_btn.setEnabled(false);
-        option_a.setBackground(ContextCompat.getDrawable(getContext() , R.color.black));
-        option_b.setBackground(ContextCompat.getDrawable(getContext() , R.color.black));
-        option_c.setBackground(ContextCompat.getDrawable(getContext() , R.color.black));
+        option_a.setBackground(ContextCompat.getDrawable(getContext() , R.color.light_sky));
+        option_b.setBackground(ContextCompat.getDrawable(getContext() , R.color.light_sky));
+        option_c.setBackground(ContextCompat.getDrawable(getContext() , R.color.light_sky));
     }
 
     private void submitResults() {
+        HashMap<String , Object> resultMap = new HashMap<>();
+        resultMap.put("Benar", correctAnswered);
+        resultMap.put("Salah", wrongAnswered);
+        resultMap.put("Tidak Dijawab", notAnswered);
 
+        viewModel.addResults(resultMap);
+        navController.navigate(R.id.action_quizFragment_to_resultFragment);
     }
 
     private void verifyAnswer(Button button) {
