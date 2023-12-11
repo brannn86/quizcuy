@@ -40,6 +40,9 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private long timer;
     private CountDownTimer countDownTimer;
     private int notAnswered = 0;
+    private int correctAnswered = 0;
+    private int wrongAnswered = 0;
+    private  String answer = "";
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -126,6 +129,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 option_b.setText(questionModels.get(i - 1).getOption_b());
                 option_c.setText(questionModels.get(i - 1).getOption_c());
                 timer = questionModels.get(i - 1).getTimer();
+                answer = questionModels.get(i-1).getAnswer();
             }
         });
 
@@ -201,9 +205,18 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
 
     private void verifyAnswer(Button button) {
         if (canAnswer){
-
-        }else{
-
+            if (answer.equals(button.getText())){
+                button.setBackground(ContextCompat.getDrawable(getContext(), R.color.green));
+                correctAnswered++;
+                ansFeedbackTv.setText("Jawaban benar!");
+            }else{
+                button.setBackground(ContextCompat.getDrawable(getContext(), R.color.red));
+                wrongAnswered++;
+                ansFeedbackTv.setText("Jawaban salah! \nJawaban Benar :" + answer);
+            }
         }
+        canAnswer=false;
+        countDownTimer.cancel();
+        showNextBtn();
     }
 }
