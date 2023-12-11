@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModel;
@@ -128,11 +129,11 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
             }
         });
 
-        startTimer(i);
+        startTimer();
         canAnswer = true;
     }
 
-    private void startTimer(int i) {
+    private void startTimer() {
         timerTv.setText(String.valueOf(timer));
         countDownTimer = new CountDownTimer(timer * 1000, 1000) {
             @Override
@@ -186,7 +187,12 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     }
 
     private void resetOptions() {
-
+        ansFeedbackTv.setVisibility(View.INVISIBLE);
+        next_btn.setVisibility(View.INVISIBLE);
+        next_btn.setEnabled(false);
+        option_a.setBackground(ContextCompat.getDrawable(getContext() , R.color.black));
+        option_b.setBackground(ContextCompat.getDrawable(getContext() , R.color.black));
+        option_c.setBackground(ContextCompat.getDrawable(getContext() , R.color.black));
     }
 
     private void submitResults() {
@@ -194,6 +200,10 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     }
 
     private void verifyAnswer(Button button) {
+        if (canAnswer){
 
+        }else{
+
+        }
     }
 }

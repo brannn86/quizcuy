@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <rotate
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:toDergrees="270"
+        android:fromDegrees="270"/>
+
+    <shape
+        android:useLevel="true"
+        android:thickness="1dp"
+        android:shape="ring"
+        android:innerRadiusRation="2.5"
+    />
+
+<!--    <gradient-->
+<!--        android:useLevel="false"-->
+<!--        android:type="sweep"-->
+<!--        android:startColor="@color/"-->
+<!--        android:endColor="@color/light_sky"-->
+<!--        android:angle="0"-->
+<!--        />-->
+</selector>
