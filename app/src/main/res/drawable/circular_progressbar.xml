@@ -13,11 +13,11 @@
         android:innerRadiusRation="2.5"
     />
 
-<!--    <gradient-->
-<!--        android:useLevel="false"-->
-<!--        android:type="sweep"-->
-<!--        android:startColor="@color/"-->
-<!--        android:endColor="@color/light_sky"-->
-<!--        android:angle="0"-->
-<!--        />-->
+    <gradient
+        android:useLevel="false"
+        android:type="sweep"
+        android:startColor="@color/"
+        android:endColor="@color/light_sky"
+        android:angle="0"
+        />
 </selector>
