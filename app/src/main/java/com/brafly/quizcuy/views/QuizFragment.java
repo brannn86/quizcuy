@@ -125,16 +125,19 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         viewModel.getQuestionMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<QuestionModel>>() {
             @Override
             public void onChanged(List<QuestionModel> questionModels) {
-                questionTv.setText(questionModels.get(i - 1).getQuestion());
+                questionTv.setText(String.valueOf(currentQueNo) + ") " + questionModels.get(i - 1).getQuestion());
                 option_a.setText(questionModels.get(i - 1).getOption_a());
                 option_b.setText(questionModels.get(i - 1).getOption_b());
                 option_c.setText(questionModels.get(i - 1).getOption_c());
                 timer = questionModels.get(i - 1).getTimer();
                 answer = questionModels.get(i-1).getAnswer();
+
+                questionNumTv.setText(String.valueOf(currentQueNo));
+                startTimer();
             }
         });
 
-        startTimer();
+
         canAnswer = true;
     }
 

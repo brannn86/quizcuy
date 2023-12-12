@@ -11,9 +11,19 @@ import com.brafly.quizcuy.repository.Question;
 import java.util.HashMap;
 import java.util.List;
 
-public class QuestionViewModel extends ViewModel implements Question.OnQuestionLoad, Question.OnResultAdded {
+public class QuestionViewModel extends ViewModel implements Question.OnQuestionLoad, Question.OnResultAdded, Question.OnResultLoad {
     private MutableLiveData<List<QuestionModel>> questionMutableLiveData;
     private Question question;
+
+    private MutableLiveData<HashMap<String , Long>> resultMutableLiveData;
+
+    public MutableLiveData<HashMap<String, Long>> getResultMutableLiveData() {
+        return resultMutableLiveData;
+    }
+
+    public void getResults(){
+        question.getResults();
+    }
 
     public MutableLiveData<List<QuestionModel>> getQuestionMutableLiveData() {
         return questionMutableLiveData;
@@ -21,7 +31,8 @@ public class QuestionViewModel extends ViewModel implements Question.OnQuestionL
 
     public QuestionViewModel() {
         questionMutableLiveData = new MutableLiveData<>();
-        question = new Question(this, this);
+        resultMutableLiveData = new MutableLiveData<>();
+        question = new Question(this, this, this);
     }
 
     public void addResults(HashMap<String , Object> resultMap){
@@ -41,6 +52,11 @@ public class QuestionViewModel extends ViewModel implements Question.OnQuestionL
     @Override
     public boolean onSubmit() {
         return true;
+    }
+
+    @Override
+    public void OnResultLoad(HashMap<String, Long> resultMap) {
+        resultMutableLiveData.setValue(resultMap);
     }
 
     @Override
