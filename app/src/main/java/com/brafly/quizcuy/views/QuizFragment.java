@@ -132,7 +132,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 timer = questionModels.get(i - 1).getTimer();
                 answer = questionModels.get(i-1).getAnswer();
 
-                questionNumTv.setText(String.valueOf(currentQueNo));
+//                questionNumTv.setText(String.valueOf(currentQueNo));
                 startTimer();
             }
         });
