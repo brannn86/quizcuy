@@ -132,7 +132,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 timer = questionModels.get(i - 1).getTimer();
                 answer = questionModels.get(i - 1).getAnswer();
 
-                // TODO: ERROR soal ke: fetch "on a null object reference"
+                // TODO: ERROR 'soal ke:' fetch "on a null object reference"
                 // questionNumTv.setText(String.valueOf(currentQueNo));
                 startTimer();
             }
