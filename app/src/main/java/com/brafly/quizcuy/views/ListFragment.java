@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
+import com.ashokvarma.bottomnavigation.BottomNavigationBar;
+import com.ashokvarma.bottomnavigation.BottomNavigationItem;
 import com.brafly.quizcuy.R;
 import com.brafly.quizcuy.adapter.QuizAdapter;
 import com.brafly.quizcuy.model.QuizListModel;
