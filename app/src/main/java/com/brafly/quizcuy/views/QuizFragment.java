@@ -125,14 +125,15 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         viewModel.getQuestionMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<QuestionModel>>() {
             @Override
             public void onChanged(List<QuestionModel> questionModels) {
-                questionTv.setText(String.valueOf(currentQueNo) + ") " + questionModels.get(i - 1).getQuestion());
+                questionTv.setText(questionModels.get(i - 1).getQuestion());
                 option_a.setText(questionModels.get(i - 1).getOption_a());
                 option_b.setText(questionModels.get(i - 1).getOption_b());
                 option_c.setText(questionModels.get(i - 1).getOption_c());
                 timer = questionModels.get(i - 1).getTimer();
-                answer = questionModels.get(i-1).getAnswer();
+                answer = questionModels.get(i - 1).getAnswer();
 
-                questionNumTv.setText(String.valueOf(currentQueNo));
+                // TODO: ERROR soal ke: fetch "on a null object reference"
+                // questionNumTv.setText(String.valueOf(currentQueNo));
                 startTimer();
             }
         });
@@ -217,13 +218,13 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
     private void verifyAnswer(Button button) {
         if (canAnswer){
             if (answer.equals(button.getText())){
-                button.setBackground(ContextCompat.getDrawable(getContext(), R.color.green));
+                button.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
                 correctAnswered++;
                 ansFeedbackTv.setText("Jawaban benar!");
             }else{
-                button.setBackground(ContextCompat.getDrawable(getContext(), R.color.red));
+                button.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
                 wrongAnswered++;
-                ansFeedbackTv.setText("Jawaban salah! \nJawaban Benar :" + answer);
+                ansFeedbackTv.setText("Jawaban salah! \n Jawaban Benar :" + answer);
             }
         }
         canAnswer=false;
