@@ -91,5 +91,13 @@
         <action
             android:id="@+id/action_resultFragment_to_listFragment"
             app:destination="@id/listFragment" />
+        <argument
+            android:name="ResultFragmentArgs"
+            app:argType="string"
+            android:defaultValue="null" />
+        <argument
+            android:name="quizId"
+            app:argType="string"
+            android:defaultValue="null" />
     </fragment>
 </navigation>

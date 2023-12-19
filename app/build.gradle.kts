@@ -48,6 +48,7 @@ dependencies {
     implementation("com.github.bumptech.glide:glide:4.16.0")
 
     // bottom navigation
+    // https://github.com/Droppers/AnimatedBottomBar
     implementation("nl.joery.animatedbottombar:library:1.1.0")
 
     implementation("androidx.appcompat:appcompat:1.6.1")
