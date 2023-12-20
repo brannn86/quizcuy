@@ -18,4 +18,21 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph" />
 
+<!--    TODO: implement bottom navigation for leaderboard and settings-->
+<!--    <nl.joery.animatedbottombar.AnimatedBottomBar-->
+<!--        android:id="@+id/bottom_bar"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="#FFF"-->
+<!--        app:abb_indicatorAppearance="round"-->
+<!--        app:abb_indicatorHeight="4dp"-->
+<!--        app:abb_indicatorMargin="16dp"-->
+<!--        app:abb_selectedIndex="0"-->
+<!--        app:abb_selectedTabType="text"-->
+<!--        app:abb_tabs="@menu/tabs"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="1.0"-->
+<!--        tools:layout_editor_absoluteX="-1dp" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
