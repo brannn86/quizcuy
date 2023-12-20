@@ -41,6 +41,9 @@ public class QuestionViewModel extends ViewModel implements Question.OnQuestionL
 
     public void setQuizId(String quizId) {
         question.setQuizId(quizId);
+    }
+
+    public void getQuestions() {
         question.getQuestions();
     }
 

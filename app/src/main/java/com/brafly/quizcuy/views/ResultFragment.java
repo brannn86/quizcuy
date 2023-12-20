@@ -67,16 +67,16 @@ public class ResultFragment extends Fragment {
             }
         });
 
-        //quizId = ResultFragmentArgs.fromBundle(getArguments()).getQuizId();
+        quizId = ResultFragmentArgs.fromBundle(getArguments()).getQuizId();
 
         viewModel.setQuizId(quizId);
         viewModel.getResults();
         viewModel.getResultMutableLiveData().observe(getViewLifecycleOwner(), new Observer<HashMap<String, Long>>() {
             @Override
             public void onChanged(HashMap<String, Long> stringLongHashMap) {
-                Long correct = stringLongHashMap.get("correct");
-                Long wrong = stringLongHashMap.get("wrong");
-                Long noAnswer = stringLongHashMap.get("notAnswered");
+                Long correct = stringLongHashMap.get("Benar");
+                Long wrong = stringLongHashMap.get("Salah");
+                Long noAnswer = stringLongHashMap.get("Tidak Dijawab");
 
                 correctAnswered.setText(correct.toString());
                 wrongAnswered.setText(wrong.toString());

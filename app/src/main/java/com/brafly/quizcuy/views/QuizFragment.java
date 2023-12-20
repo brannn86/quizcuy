@@ -80,6 +80,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         quizId = QuizFragmentArgs.fromBundle(getArguments()).getQuizID();
         totalQuestions = QuizFragmentArgs.fromBundle(getArguments()).getTotalQueCount();
         viewModel.setQuizId(quizId);
+        viewModel.getQuestions();
 
         option_a.setOnClickListener(this);
         option_b.setOnClickListener(this);
@@ -133,7 +134,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
                 answer = questionModels.get(i - 1).getAnswer();
 
                 // TODO: ERROR 'soal ke:' fetch "on a null object reference"
-                //questionNumTv.setText(String.valueOf(currentQueNo));
+                // questionNumTv.setText(String.valueOf(currentQueNo));
                 startTimer();
             }
         });
@@ -212,7 +213,8 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         resultMap.put("Tidak Dijawab", notAnswered);
 
         viewModel.addResults(resultMap);
-        QuizFragmentDirections.ActionQuizFragmentToResultFragment action = QuizFragmentDirections.actionQuizFragmentToResultFragment();
+        QuizFragmentDirections.ActionQuizFragmentToResultFragment
+                action = QuizFragmentDirections.actionQuizFragmentToResultFragment();
         action.setQuizId(quizId);
         navController.navigate(action);
     }
