@@ -26,4 +26,7 @@
     <string name="tidak_terjawab">Tidak Terjawab :</string>
     <string name="jawaban_benar">Jawaban Benar :</string>
     <string name="_30">30</string>
+    <string name="pengaturan">Pengaturan</string>
+    <string name="peringkat">Peringkat</string>
+    <string name="quiz">Quiz</string>
 </resources>

@@ -27,4 +27,7 @@
     <string name="berhasil_daftar">Berhasil Daftar!</string>
     <string name="quiz_1">Quiz 1</string>
     <string name="_30">30</string>
+    <string name="pengaturan">Pengaturan</string>
+    <string name="peringkat">Peringkat</string>
+    <string name="quiz">Quiz</string>
 </resources>

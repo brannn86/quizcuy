@@ -4,6 +4,8 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -19,6 +21,8 @@ import com.brafly.quizcuy.viewmodel.QuestionViewModel;
 
 import org.checkerframework.checker.nullness.qual.NonNull;
 
+import java.util.HashMap;
+
 
 public class ResultFragment extends Fragment {
 
@@ -30,7 +34,12 @@ public class ResultFragment extends Fragment {
     private String quizId;
     private Button homeBtn;
 
-
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        viewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory
+                .getInstance(getActivity().getApplication())).get(QuestionViewModel.class);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,5 +59,36 @@ public class ResultFragment extends Fragment {
         percentTv = view.findViewById(R.id.percentage);
         scoreProgressbar = view.findViewById(R.id.percentage_bar);
         homeBtn = view.findViewById(R.id.back_btn);
+
+        homeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_resultFragment_to_listFragment);
+            }
+        });
+
+        quizId = ResultFragmentArgs.fromBundle(getArguments()).getQuizId();
+
+        viewModel.setQuizId(quizId);
+        viewModel.getResults();
+        viewModel.getResultMutableLiveData().observe(getViewLifecycleOwner(), new Observer<HashMap<String, Long>>() {
+            @Override
+            public void onChanged(HashMap<String, Long> stringLongHashMap) {
+                Long correct = stringLongHashMap.get("Benar");
+                Long wrong = stringLongHashMap.get("Salah");
+                Long noAnswer = stringLongHashMap.get("Tidak Dijawab");
+
+                correctAnswered.setText(correct.toString());
+                wrongAnswered.setText(wrong.toString());
+                notAnswered.setText(noAnswer.toString());
+
+                Long total = correct + wrong + noAnswer;
+                Long percent = (correct * 100 / total);
+
+                percentTv.setText(String.valueOf(percent));
+                scoreProgressbar.setProgress(percent.intValue());
+            }
+        });
+
     }
 }

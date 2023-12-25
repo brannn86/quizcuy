@@ -80,6 +80,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         quizId = QuizFragmentArgs.fromBundle(getArguments()).getQuizID();
         totalQuestions = QuizFragmentArgs.fromBundle(getArguments()).getTotalQueCount();
         viewModel.setQuizId(quizId);
+        viewModel.getQuestions();
 
         option_a.setOnClickListener(this);
         option_b.setOnClickListener(this);
@@ -125,7 +126,7 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         viewModel.getQuestionMutableLiveData().observe(getViewLifecycleOwner(), new Observer<List<QuestionModel>>() {
             @Override
             public void onChanged(List<QuestionModel> questionModels) {
-                questionTv.setText(questionModels.get(i - 1).getQuestion());
+                questionTv.setText(String.valueOf(currentQueNo) + ") " + questionModels.get(i - 1).getQuestion());
                 option_a.setText(questionModels.get(i - 1).getOption_a());
                 option_b.setText(questionModels.get(i - 1).getOption_b());
                 option_c.setText(questionModels.get(i - 1).getOption_c());
@@ -212,19 +213,22 @@ public class QuizFragment extends Fragment implements View.OnClickListener {
         resultMap.put("Tidak Dijawab", notAnswered);
 
         viewModel.addResults(resultMap);
-        navController.navigate(R.id.action_quizFragment_to_resultFragment);
+        QuizFragmentDirections.ActionQuizFragmentToResultFragment
+                action = QuizFragmentDirections.actionQuizFragmentToResultFragment();
+        action.setQuizId(quizId);
+        navController.navigate(action);
     }
 
     private void verifyAnswer(Button button) {
         if (canAnswer){
             if (answer.equals(button.getText())){
-                button.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                button.setBackground(ContextCompat.getDrawable(getContext(), R.color.green));
                 correctAnswered++;
                 ansFeedbackTv.setText("Jawaban benar!");
             }else{
-                button.setBackground(ContextCompat.getDrawable(getContext(), R.color.white));
+                button.setBackground(ContextCompat.getDrawable(getContext(), R.color.red));
                 wrongAnswered++;
-                ansFeedbackTv.setText("Jawaban salah! \n Jawaban Benar :" + answer);
+                ansFeedbackTv.setText("Jawaban salah! \nJawaban Benar : " + answer);
             }
         }
         canAnswer=false;

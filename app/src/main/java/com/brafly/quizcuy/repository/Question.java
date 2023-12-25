@@ -19,7 +19,7 @@ public class Question {
 
     private FirebaseFirestore firestore;
     private String quizId;
-    private HashMap<String, Long> resultMap= new HashMap<>();
+    private HashMap<String, Long> resultMap = new HashMap<>();
     private MutableLiveData<List<QuestionModel>> questionMutableLiveData;
     private OnQuestionLoad onQuestionLoad;
     private OnResultAdded onResultAdded;

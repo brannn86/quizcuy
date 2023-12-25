@@ -13,6 +13,8 @@ import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 
 import com.brafly.quizcuy.R;
 import com.brafly.quizcuy.viewmodel.AuthViewModel;
