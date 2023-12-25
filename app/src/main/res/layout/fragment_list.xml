@@ -7,6 +7,13 @@
     tools:context=".views.ListFragment">
 
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/background"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -58,5 +65,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         tools:layout_editor_absoluteX="-1dp" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
