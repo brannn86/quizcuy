@@ -55,83 +55,89 @@
         android:id="@+id/timer_bar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
-        android:progressDrawable="@drawable/circular_progressbar"
         android:layout_height="wrap_content"
-        android:progress="50"
-        android:visibility="invisible"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="52dp"
+        android:progress="50"
+        android:progressDrawable="@drawable/circular_progressbar"
+        android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/close_btn" />
 
     <TextView
         android:id="@+id/question"
-        android:layout_width="wrap_content"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="176dp"
         android:text="@string/text_soal"
+        android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/timer_bar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/option_a"
         android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/option_a"
         android:textColor="@color/white"
+        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.509"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/question" />
 
     <Button
         android:id="@+id/option_b"
         android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/option_b"
         android:textColor="@color/white"
+        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option_a" />
 
     <Button
         android:id="@+id/option_c"
         android:layout_width="250dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/option_c"
         android:textColor="@color/white"
+        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/option_b" />
 
     <TextView
         android:id="@+id/verify"
-        android:layout_width="wrap_content"
+        android:layout_width="340dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginBottom="32dp"
+        android:textStyle="bold"
+        android:gravity="center"
         android:text="@string/verify_answer"
+        app:layout_constraintBottom_toTopOf="@+id/next_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/option_c" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/next_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginBottom="44dp"
         android:text="@string/soal_berikutnya"
         android:textColor="@color/white"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verify" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

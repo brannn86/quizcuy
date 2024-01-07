@@ -30,4 +30,5 @@
     <string name="pengaturan">Pengaturan</string>
     <string name="peringkat">Peringkat</string>
     <string name="quiz">Quiz</string>
+    <string name="logout">Logout</string>
 </resources>

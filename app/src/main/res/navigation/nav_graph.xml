@@ -50,10 +50,10 @@
         <action
             android:id="@+id/action_registerFragment_to_loginFragment"
             app:destination="@id/loginFragment"
-            app:enterAnim="@anim/fade_in"
-            app:exitAnim="@anim/fade_out"
-            app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out" />
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in"
+            app:popExitAnim="@anim/slide_out" />
         <action
             android:id="@+id/action_registerFragment_to_listFragment"
             app:destination="@id/listFragment"
@@ -74,6 +74,12 @@
             app:exitAnim="@anim/slide_out"
             app:popEnterAnim="@anim/slide_in"
             app:popExitAnim="@anim/slide_out" />
+        <action
+            android:id="@+id/action_listFragment_to_loginFragment"
+            app:destination="@id/loginFragment"
+            app:enterAnim="@anim/slide_in"
+            app:exitAnim="@anim/slide_out"
+            app:popEnterAnim="@anim/slide_in" />
     </fragment>
     <fragment
         android:id="@+id/detailsFragment"

@@ -51,6 +51,10 @@ dependencies {
     // https://github.com/Droppers/AnimatedBottomBar
     implementation("nl.joery.animatedbottombar:library:1.1.0")
 
+    //text justify
+    implementation("me.biubiubiu.justifytext:library:1.1")
+
+
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")

@@ -8,13 +8,26 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="-15dp">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="45dp"
+        android:text="@string/login"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.653" />
 
     <EditText
         android:id="@+id/email"
         android:layout_width="260dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginBottom="16dp"
         android:autofillHints=""
+        android:background="@drawable/edit_text_corner"
         android:ems="10"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
@@ -28,9 +41,10 @@
     <EditText
         android:id="@+id/password"
         android:layout_width="260dp"
-        android:layout_height="wrap_content"
+        android:layout_height="45dp"
         android:layout_marginBottom="200dp"
         android:autofillHints=""
+        android:background="@drawable/edit_text_corner"
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
@@ -46,6 +60,7 @@
         android:layout_marginTop="624dp"
         android:text="@string/login"
         android:textColor="@color/white"
+        app:cornerRadius="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -65,11 +80,15 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="324dp"
-        android:layout_height="382dp"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
         android:src="@drawable/banner_1024"
-        tools:layout_editor_absoluteX="43dp"
-        tools:layout_editor_absoluteY="-3dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.088" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

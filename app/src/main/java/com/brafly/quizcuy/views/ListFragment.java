@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.brafly.quizcuy.R;
@@ -22,6 +23,7 @@ import com.brafly.quizcuy.adapter.QuizAdapter;
 import com.brafly.quizcuy.model.QuizListModel;
 import com.brafly.quizcuy.viewmodel.AuthViewModel;
 import com.brafly.quizcuy.viewmodel.QuizListViewModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -32,6 +34,8 @@ public class ListFragment extends Fragment implements QuizAdapter.OnItemClickLis
     private NavController navController;
     private QuizListViewModel viewModel;
     private QuizAdapter adapter;
+    private FirebaseAuth auth;
+    Button logout_btn;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -55,11 +59,21 @@ public class ListFragment extends Fragment implements QuizAdapter.OnItemClickLis
         progressBar = view.findViewById(R.id.quizListBar);
         navController = Navigation.findNavController(view);
 
+        logout_btn = view.findViewById(R.id.logout_btn);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         adapter = new QuizAdapter(this);
 
         recyclerView.setAdapter(adapter);
+
+        logout_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                auth.getInstance().signOut();
+                navController.navigate(R.id.action_listFragment_to_loginFragment);
+            }
+        });
 
         viewModel.getQuizListLiveData().observe(getViewLifecycleOwner(), new Observer<List<QuizListModel>>() {
             @Override
@@ -79,4 +93,5 @@ public class ListFragment extends Fragment implements QuizAdapter.OnItemClickLis
         action.setPosition(position);
         navController.navigate(action);
     }
+
 }
